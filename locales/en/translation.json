@@ -1,0 +1,10 @@
+{
+    "lang": "عربي",
+    "title": "Express Shipment tracking",
+    "subtitle": "Now you can track express mail shipments that enter the Kingdom and monitor status and updates",
+    "choose_provider": "Choose your provider",
+    "tracking_number": "Tracking Number",
+    "search": "Search",
+    "validation_msg": "Please choose provider & check tracking number",
+    "no_data": "No Data Found"
+}

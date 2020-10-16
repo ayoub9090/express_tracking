@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 var currentLang = 'ar';
-//changeLang('load');
+changeLang('load');
 
 
 function changeLang(t) {
@@ -78,7 +78,8 @@ function searchCode() {
 
 
         var url = 'http://192.168.24.70:8050/masar/tracking/shipment/express?slug=' + providerSlug + '&track=' + tracking_code;
-        var lang = "EN";
+        //var lang = "EN";
+        var lang = currentLang;
         var settings = {
             "url": url,
             "method": "GET",
@@ -117,12 +118,20 @@ function searchCode() {
                 $('#submitSearch').attr('disabled', false);
                 console.log(arr.data.tracking.status_history.length);
             } else {
-                $('.result-list').append('<li class="text-center bbold">No data found</li>');
+                if (currentLang == "en") {
+                    $('.result-list').append('<li class="text-center bbold">No data found</li>');
+                } else {
+                    $('.result-list').append('<li class="text-center bbold">لا توجد بيانات</li>');
+                }
                 $('#submitSearch').attr('disabled', false);
             }
         });
     } else {
-        $('.error').html("Please choose provider & check tracking number");
+        if (currentLang == "en") {
+            $('.error').html("Please choose provider & check tracking number");
+        } else {
+            $('.error').html("يرجى اختيار مزود الخدمة والتحقق من رقم التتبع");
+        }
 
     }
 
